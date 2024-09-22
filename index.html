@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="keys">
+    <div data-key="81" class="white b key">
+       
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="83" class="black as key">
+ 
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="68" class="white a key">
+ 
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="70" class="black gs key">
+ 
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="71" class="white g key">
+
+    </div>
+    <div data-key="72" class="black fs key">
+
+    </div>
+    <div data-key="74" class="white f key">
+     
+    </div>
+    <div data-key="75" class="white e key">
+
+    </div>
+    <div data-key="76" class="black ds key">
+
+    </div>
+    <div data-key="90" class="white f key">
+
+      
+    </div>
+    <div data-key="69" class="white b key">
+       
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="82" class="black as key">
+  
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="84" class="white a key">
+  
+      <!--/* pour definer le keybourd*/--> 
+    </div>
+    <div data-key="89" class="black gs key">
+ 
+ 
+    </div>
+    <div data-key="85" class="white g key">
+
+    </div>
+    <div data-key="73" class="black fs key">
+
+    </div>
+    <div data-key="79" class="white f key">
+
+      
+    </div>
+  </div>
+  <audio data-key="81" src="sounds/a6-102820.mp3"></audio>
+  <audio data-key="83" src="sounds/b6-82017.mp3"></audio>
+  <audio data-key="68" src="sounds/c6-102822.mp3"></audio>
+  <audio data-key="70" src="sounds/d6-82018.mp3"></audio>
+  <audio data-key="71" src="sounds/d6-82020.mp3"></audio>
+  <audio data-key="72" src="sounds/do-80236.mp3"></audio>
+  <audio data-key="74" src="sounds/e6-82016.mp3"></audio>
+  <audio data-key="75" src="sounds/chime-sound-7143.mp3"></audio>
+  <audio data-key="76" src="sounds/error-9-206494.mp3"></audio>
+  <audio data-key="90" src="sounds/f6-102819.mp3"></audio>
+  <audio data-key="69" src="sounds/sol-101774.mp3"></audio>
+  <audio data-key="82" src="sounds/g6-82013.mp3"></audio>
+  <audio data-key="84" src="sounds/g6-82014.mp3"></audio>
+  <audio data-key="89" src="sounds/la-80237.mp3"></audio>
+  <audio data-key="85" src="sounds/music-box-note-14514.mp3"></audio>
+  <audio data-key="73" src="sounds/piano-g-6200.mp3"></audio>
+  <audio data-key="79" src="sounds/piano-slam-97095.mp3"></audio>
+  <script>
+    const key = document.querySelectorAll(".key")
+    function playNote(e) {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`),
+    key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if (!key) return;
+key.classList.add("playing");
+audio.currentTime = 0;
+audio.play();
+
+}
+function removeTransition(e) {
+ const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  key.classList.toggle("playing");
+}
+
+window.addEventListener("keydown", playNote);
+window.addEventListener("keyup",removeTransition)
+
+  </script>
+</body>
+</html>
